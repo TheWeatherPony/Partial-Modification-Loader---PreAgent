@@ -113,6 +113,7 @@ public class AgentStart{
     	InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(loc);
     	File pathDir = new File(CACHE_DIR);
     	File jarPath = new File(pathDir, MINITOOLS_JAR);
+    	jarPath.deleteOnExit();
 		Files.copy(in, jarPath.toPath(), StandardCopyOption.REPLACE_EXISTING);
 		
 		ClassLoader cur = ClassLoader.getSystemClassLoader();
